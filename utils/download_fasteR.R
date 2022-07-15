@@ -4,26 +4,13 @@ library(data.table)
 library(stringr)
 library(jsonlite)
 
-text <- xfun::read_utf8("https://raw.githubusercontent.com/matloff/fasteR/master/README.md")
+# text <- xfun::read_utf8("https://raw.githubusercontent.com/matloff/fasteR/master/README.md")
+text <- xfun::read_utf8(here::here("public/README.md"))
 text <- text[-1]
-
-# A little cleaning
-text <- str_replace(text, "``` r", "```r")
-text <- str_replace_all(text, "\"<-\"", "`<-`")
-text <- str_replace_all(text, "\'<-\'", "`<-`")
-text <- str_replace_all(text, "\'<\'", "`<`")
-text <- str_replace_all(text, "\"a <- b\"", "`a <- b`")
-
-# 17-less11.md
-text <- str_replace_all(text, "\'\\{\'", "`{`")
-text <- str_replace_all(text, "\'\\}\'", "`}`")
-text <- str_replace_all(text, "\'+\'", "`+`")
 
 # Update colors
 text <- str_replace_all(text, '<span style="color:red">', '<span style="color: #b4637a;">')
 
-# 36-whl.md
-text <- str_replace_all(text, "\\*\\*i <= length\\(airpass\\)\\*\\*", "`i <= length(airpass)`")
 
 
 idx <- str_detect(text, "^## ")

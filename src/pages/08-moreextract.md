@@ -10,10 +10,10 @@ Often we need to extract rows or columns from a data frame, subject to
 more than one condition.  For instance, say we wish to extract from
 **tg** the sub-data frame consisting of OJ and length less than 8.8.  
 
-We could do this, using the ampersand symbol '&', which means a logical
+We could do this, using the ampersand symbol `&`, which means a logical
 AND operation:
 
-```r
+``` r
 > tg[tg$supp=='OJ' & tg$len < 8.8,]
    len supp dose
 37 8.2   OJ  0.5
@@ -22,11 +22,11 @@ AND operation:
 Ah, it turns out that only one case satisfied both conditions.  
 
 If we want all rows that satisfy at least one of the conditions, not
-necessarily both, then we use the OR operator, '|'.  Say we want to
-obtain all rows in which either **len** is greater than 28 or the
+necessarily both, then we use the OR operator, `|`.  Say we want to
+obtain all rows in which either `len` is greater than 28 or the
 treatment dose was 1.0 or both:
 
-```r
+``` r
 > tg[tg$len > 28 | tg$dose == 1.0,]
     len supp dose
 11 16.5   VC    1
@@ -58,20 +58,20 @@ treatment dose was 1.0 or both:
 
 By the way, note that the original row numbers are displayed too.  For
 example, the first case satisfying the conditions was row number 11 in
-the original data frame **tg**.
+the original data frame `tg`.
 
-```r
+``` r
 > w <- tg[tg$len > 28 | tg$dose == 1.0,]
 ```
 
-Again, I chose the name 'w' arbitrarily.  Names must begin with a
+Again, I chose the name `w` arbitrarily.  Names must begin with a
 letter, and consist only of letters, digits and a few special
-characters such as '-' or '.'
+characters such as `-` or `.`
 
-Note that **w** is a new data frame, on which we can perform the usual
+Note that `w` is a new data frame, on which we can perform the usual
 operations, e.g.
 
-```r
+``` r
 > head(w)
     len supp dose
 11 16.5   VC    1
@@ -85,13 +85,13 @@ operations, e.g.
 ```
 
 We may only be interested in say, *how many* cases satisfied the given
-conditions.  As before, we can use **nrow** for that, as seen here.
+conditions.  As before, we can use `nrow` for that, as seen here.
 
 As seen early, we can also extract columns.  Say our analysis will use
-only tooth length and dose.  We write 'c(1,3)' in the "what columns we
+only tooth length and dose.  We write `c(1,3)` in the "what columns we
 want" place, indicating columns 1 and 3:
 
-```r
+``` r
 > lendose <- tg[,c(1,3)]
 > head(lendose)
    len dose
@@ -103,12 +103,12 @@ want" place, indicating columns 1 and 3:
 6 10.0  0.5
 ```
 
-From now on, we would work with **lendose** instead of **tg**.
+From now on, we would work with `lendose` instead of `tg`.
 
 It's a little nicer, though, the specify the columns by name instead of
 number:
 
-```r
+``` r
 > lendose <- tg[,c('len','dose')]
 > head(lendose)
    len dose
@@ -124,7 +124,7 @@ The logical operations work on vectors too.  For example, say in the
 **Nile** data we wish to know how many years had flows in the extremes,
 say below 500 or above 1200:
 
-```r
+``` r
 > exts <- Nile[Nile < 800 | Nile > 1300]
 > head(exts)
 [1] 1370  799  774  694  701  692
@@ -133,10 +133,10 @@ say below 500 or above 1200:
 ```
 
 By the way, if this count were our only interest, i.e. we have no
-further use for **exts**, we can skip assigning to **exts**, and do
+further use for `exts`, we can skip assigning to `exts`, and do
 things directly:
 
-```r
+``` r
 > length(Nile[Nile < 800 | Nile > 1300])
 [1] 27
 ```
@@ -147,8 +147,8 @@ a time" is better for beginners.
 ### Recap:  What we've learned in this lesson
 
 Here we got more practice in manipulating data frames, and were
-introduced to the logical operators '&' and '|'.  We also saw another
-example of using **nrow** as a means of counting how many rows satisfy
+introduced to the logical operators `&` and `|`.  We also saw another
+example of using `nrow` as a means of counting how many rows satisfy
 given conditions.
 
 Again, these are all "bread and butter" operations that arise quite
@@ -156,7 +156,7 @@ freqently in real world R usage.
 
 By the way, note how the essence of R is "combining little things in
 order to do big things," e.g. combining the subsetting operation, the
-'&' operator, and **nrow** to get a count of rows satisfying given
+'&' operator, and `nrow` to get a count of rows satisfying given
 conditions.  This too is the "bread and butter" of R.  It's up to you,
 the R user, to creatively combine R's little operations (and later, some
 big ones) to achieve whatever goals you have for your data.  *Programming
@@ -165,7 +165,7 @@ store has lots of different potential ingredients, and you decide which
 ones to buy and combine into a meal.
 
 > **Your turn:**  Try some of these operations on R's built-in
-> **faithful** dataset.  For instance, find the number of eruptions for
-> which 'eruptions' was greater than 3 and waiting time was more than 80
+> `faithful` dataset.  For instance, find the number of eruptions for
+> which `eruptions` was greater than 3 and waiting time was more than 80
 > minutes.
 

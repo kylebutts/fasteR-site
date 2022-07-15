@@ -19,19 +19,19 @@ Other good sources of public R packages are
 pages.  
 
 Below, we'll introduce one of the most popular user-contributed
-packages, **ggplot2**.  But first, how does one install and load
+packages, `ggplot2`.  But first, how does one install and load
 packages?
 
 First, one needs a place to put the packages.  UseRs often designate a
 special folder/directory for their packages (both those they download
-and ones they write themselves).  I use 'R' in my home directory for
+and ones they write themselves).  I use `R` in my home directory for
 that purpose, but if you don't specify a folder, your package installer
 will choose one for you.  It won't matter as long as you are consistent.
 I'll assume you don't specify a package folder.
 
-To install, say, **ggplot2**, you can type at the R prompt,
+To install, say, `ggplot2`, you can type at the R prompt,
 
-```r
+``` r
 > install.packages('ggplot2')
 ```
 
@@ -40,7 +40,7 @@ Or in RStudio, choose Tools | Install Packages...
 When you want to use one of your installed packages, you need to tell R
 to load it, e.g. by typing at the R prompt,
 
-```r
+``` r
 > library(ggplot2)
 ```
 

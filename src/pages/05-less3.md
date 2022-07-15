@@ -18,16 +18,16 @@ i.e. the height, weight and age of that person.
 **Note that that row would also be cnsidered a vector.  The third column
 as a whole would be the vector of all ages in our dataset.**
 
-As our first example, consider the **ToothGrowth** dataset built-in to
+As our first example, consider the `ToothGrowth` dataset built-in to
 R.  Again, you can read about it in the online help by typing
 
-```r
+``` r
 > ?ToothGrowth
 ``` (The data turn out to be on guinea pigs, with orange juice or
 Vitamin C as growth supplements.)  Let's take a quick look from the
 command line.
 
-```r
+``` r
 > head(ToothGrowth)
    len supp dose
 1  4.2   VC  0.5
@@ -38,10 +38,10 @@ command line.
 6 10.0   VC  0.5
 ```
 
-R's **head** function displays (by default) the first 6 rows of the
+R's `head` function displays (by default) the first 6 rows of the
 given dataframe.  We see there are length, supplement and dosage
-columns, which the curator of the data decided to name 'len', 'supp' and
-'dose'.  Each of column is an R vector, or in the case of the second
+columns, which the curator of the data decided to name `len`, `supp` and 
+`dose`.  Each of column is an R vector, or in the case of the second
 column, a vector-like object called a *factor*, to be discussed
 shortly).  
 
@@ -49,7 +49,7 @@ shortly).
 > To avoid writing out the long words repeatedly, it's handy to
 > make a copy with a shorter name.
 
-```r
+``` r
 > tg <- ToothGrowth
 ```
 
@@ -57,7 +57,7 @@ Dollar signs are used to denote the individual columns, e.g.
 **ToothGrowth$dose** for the dose column.  So for instance, we can print
 out the mean tooth length: 
 
-```r
+``` r
 > mean(tg$len)
 [1] 18.81333
 ```
@@ -65,42 +65,42 @@ out the mean tooth length:
 Subscripts/indices in data frames are pairs, specifying row and column
 numbers.  To get the element in row 3, column 1:
 
-```r
+``` r
 > tg[3,1]
 [1] 7.3
 ```
-which matches what we saw above in our **head** example.  Or, use the 
-fact that **tg$len** is a vector:
+which matches what we saw above in our `head` example.  Or, use the 
+fact that `tg$len` is a vector:
 
-```r
+``` r
 > tg$len[3]
 [1] 7.3
 ```
 
-The element in row 3, column 1 in the *data frame* **tg** is element 3
-in the *vector* **tg$letn**.  This duality between data frames and
+The element in row 3, column 1 in the *data frame* `tg` is element 3
+in the *vector* `tg$letn`.  This duality between data frames and
 vectors is often exploited in R.
 
 > **Your Turn:**  The above examples are fundamental to R, so you should
 > conduct a few small experiments on your own this time, little variants
 > of the above.  The more you do, the better!
 
-For any subset of a data frame **d**, we can extract whatever rows and
+For any subset of a data frame `d`, we can extract whatever rows and
 columns we want using the format
 
-```r
+``` r
 d[the rows we want, the columns we want]
 ```
 
 Some data frames don't have column names, but that is no obstacle.  We
 can use column numbers, e.g.
 
-```r
+``` r
 > mean(tg[,1])
 [1] 18.81333
 ```
 
-Note the expression '[,1]'.  Since there is a 1 in the second position,
+Note the expression `[,1]`.  Since there is a 1 in the second position,
 we are talking about column 1.  And since the first position, before the
 comma, is empty, no rows are specified -- so *all* rows are included.
 That boils down to: all of column 1.
@@ -108,7 +108,7 @@ That boils down to: all of column 1.
 A key feature of R is that one can extract subsets of data frames, 
 just as we extracted subsets of vectors earlier.  For instance,
 
-```r
+``` r
 > z <- tg[2:5,c(1,3)]
 > z
    len dose
@@ -119,9 +119,9 @@ just as we extracted subsets of vectors earlier.  For instance,
 ```
 
 Here we extracted rows 2 through 5, and columns 1 and 3, assigning the
-result to **z**.  To extract those columns but keep all rows, do
+result to `z`.  To extract those columns but keep all rows, do
 
-```r
+``` r
 > y <- tg[ ,c(1,3)]
 ```
 
@@ -129,10 +129,10 @@ i.e. leave the row specification field empty.
 
 By the way, note that the three columns are all of the same length, a
 requirement for data frames.  And what is that common length in this
-case?  R's **nrow** function tells us the number of rows in any data
+case?  R's `nrow` function tells us the number of rows in any data
 frame:
 
-```r
+``` r
 > nrow(ToothGrowth)
 [1] 60
 ```
@@ -141,7 +141,7 @@ Ah, 60 rows (60 guinea pigs, 3 measurements each).
 
 Or, alternatively:
 
-```r
+``` r
 > tg <- ToothGrowth
 > length(tg$len)
 [1] 60
@@ -157,17 +157,17 @@ help reinforce the knowledge you are now accumulating about R.  So,
 *make sure you understand how each of those four approaches produced the
 number 60.*
 
-The **head** function works on vectors too:
+The `head` function works on vectors too:
 
-```r
+``` r
 >  head(ToothGrowth$len)
 [1]  4.2 11.5  7.3  5.8  6.4 10.0
 ```
 
-Like many R functions, **head** has an optional second argument,
+Like many R functions, `head` has an optional second argument,
 specifying how many elements to print:
 
-```r
+``` r
 > head(ToothGrowth$len,10)
  [1]  4.2 11.5  7.3  5.8  6.4 10.0 11.2 11.2  5.2  7.0
 ```
@@ -175,7 +175,7 @@ specifying how many elements to print:
 You can create your own data frames -- good for devising little tests of
 your understanding -- as follows:
 
-```r
+``` r
 > x <- c(5,12,13)
 > y <- c('abc','de','z')
 > d <- data.frame(x,y)
@@ -190,20 +190,20 @@ Look at that second line!  Instead of vectors consisting of numbers,
 one can form vectors of character strings, complete with indexing
 capability, e.g.
 
-```r
+``` r
 > y <- c('abc','de','z')
 > y[2]
 [1] "de"
 ```
 
 As noted, all the columns in a data frame must be of the same length.
-Here **x** consists of 3 numbers, and **y** consists of 3 character
+Here `x` consists of 3 numbers, and `y` consists of 3 character
 strings.  (The string is the unit in the latter.  The number of
 characters in each string is irrelevant.)
 
 One can use negative indices for rows and columns as well, e.g.
 
-```r
+``` r
 > z <- tg[,-2]
 > head(z)
    len dose
@@ -215,10 +215,10 @@ One can use negative indices for rows and columns as well, e.g.
 6 10.0  0.5
 ```
 
-> **Your Turn:** Devise your own little examples with the **ToothGrowth**
+> **Your Turn:** Devise your own little examples with the `ToothGrowth`
 > data.  For instance, write code that finds the number of cases in which
 > the tooth length was less than 16.  Also, try some examples with another
-> built-in R dataset, **faithful**.  This one involves the Old Faithful
+> built-in R dataset, `faithful`.  This one involves the Old Faithful
 > geyser in Yellowstone National Park in the US.  The first column gives
 > duration of the eruption, and the second has the waiting time since the
 > last eruption.  As mentioned, these operations are key features of R,
@@ -235,5 +235,5 @@ Unlike the single-number indices of vectors, each element in a data
 frame has 2 indices, a row number and a column number.  One can specify
 sets of rows and columns to extra subframes.
 
-One can use the R **nrow** function to query the number of rows in a
-data frame; **ncol** does the same for the number of columns.
+One can use the R `nrow` function to query the number of rows in a
+data frame; `ncol` does the same for the number of columns.

@@ -7,24 +7,24 @@ toc_num: 37
 ## <a name="whl"> </a> Lesson 36:  R 'while' Loops
 
 We've seen R **for** loops in previous lessons, but there's another kind
-of loop, **while**.  It keeps iterating until some specified condition
+of loop, `while`.  It keeps iterating until some specified condition
 is met.  We don't know how many iterations will be needed, unlike the
-**for** case, with a fixed number of iterations.
+`for` case, with a fixed number of iterations.
 
-As our example, consider **AirPassengers**, which consists of number of
+As our example, consider `AirPassengers`, which consists of number of
 air travelers in thousands, in monthly data from January 1949.  As
 usual, let's glance at it first:
 
-```r
+``` r
 > str(airpass)
  Time-Series [1:144] from 1949 to 1961: 112 118 132 129 121 135 148 148 136 119 ...
 ```
 
 Suppose we wish to know when the cumulative number of passengers first
-exceeded 10 million.  A crude way would be to use R's **cumsum**
+exceeded 10 million.  A crude way would be to use R's `cumsum`
 ("cumulative sums") function:
 
-```r
+``` r
 > cumsum(airpass)
   [1]   112   230   362   491   612   747   895  1043  1179  1298  1402  1520
  [13]  1635  1761  1902  2037  2162  2311  2481  2651  2809  2942  3056  3196
@@ -45,7 +45,7 @@ would be convenient, it also would be wasteful:  We are calculating *all*
 the cumulative sums, even though we don't need them all.  In a really
 long vector, this could be slow.  Here is a less wasteful way:
 
-```r
+``` r
  tot <- 0
 > i <- 0
 > while (i <= length(airpass) && tot < 10000) {
@@ -56,21 +56,21 @@ long vector, this could be slow.  Here is a less wasteful way:
 [1] 59
 ```
 
-So, the **while** loop keeps iterating until we get the desired
+So, the `while` loop keeps iterating until we get the desired
 cumulative total.
 
 Key points here:
 
-* The '&&' operator stands for "and".  
+* The `&&` operator stands for "and".  
 
-* The condition within the 'while' says that (a) we are not yet at the
-  end of the **airpass** vector, AND (b) our total is still less than
+* The condition within the `while` says that (a) we are not yet at the
+  end of the `airpass` vector, AND (b) our total is still less than
 10000.
 
 * Note the need for the condition `i <= length(airpass)`.  It's
-  possible that **tot** will never exceed 10000 (not true here, but we
+  possible that `tot` will never exceed 10000 (not true here, but we
 wouldn't know that *a priori*), so we need that condition so that the
 loop doesn't iterate forever!
 
-There's more, though.  The **cumsum** function is vectorized, so using
+There's more, though.  The `cumsum` function is vectorized, so using
 it, though seemingly wasteful, may actually be faster than the loop

@@ -13,15 +13,15 @@ outcomes occurs?
 
 Consider the Pima dataset from earlier examples.  Say we are predicting
 whether someone has -- or will later develop -- diabetes.  This is coded
-in the **test** column of the dataset, 1 for having the disease, 0 for
+in the `test` column of the dataset, 1 for having the disease, 0 for
 not.
 
-As a simple example, say we try to predict **test** from the variables
-**bim** and **age**.  A linear model would be
+As a simple example, say we try to predict `test` from the variables
+`bim` and `age`.  A linear model would be
 
 mean test = &beta;<sub>0</sub> + &beta;<sub>1</sub> bmi + &beta;<sub>2</sub> age
 
-Remember, **test** takes on the values 1 and 0.  What happens when we
+Remember, `test` takes on the values 1 and 0.  What happens when we
 take the average of a bunch of 1s and 0s?  The answer is that we get the
 proportion of 1s.  For instance, the mean of the numbers 1,0,1,1 is 3/4,
 which is exactly the proportion of 1s in that data.
@@ -47,7 +47,7 @@ As before, the statistical details are beyond the scope of this
 R tutorial, but here is how you estimate the coefficients
 &beta;<sub>i</sub> using R:
 
-```r
+``` r
 > glout <- glm(test ~ bmi + age, data=pima, family=binomial)
 > summary(glout)
 ...
@@ -63,7 +63,7 @@ Let's explore those estimated &beta;<sub>i</sub> a bit.  Consider
 women with about average BMI, say 32, and compare 30-year-olds to those
 of age 40.  
 
-```r
+``` r
 > l <- function(t) 1 / (1 + exp(-t))
 > l(-5.40378 + 32*0.09825 + 30*0.04561)
 [1] 0.2908045

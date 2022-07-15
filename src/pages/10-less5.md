@@ -16,15 +16,15 @@ might ferret out bad data.  And along the way, we'll cover several new R
 concepts.
 
 We'll use the famous Pima Diabetes dataset.  Various versions exist, but
-we'll use the one included in **faraway**, an R package compiled
+we'll use the one included in `faraway`, an R package compiled
 by Julian Faraway, author of several popular books on statistical
 regression analysis in R.
 
-I've placed the data file, **Pima.csv**, on
+I've placed the data file, `Pima.csv`, on
 [my Web site](http://heather.cs.ucdavis.edu/FasteR/data/Pima.csv). Here
 is how you can read it into R:
 
-```r
+``` r
 > pima <- read.csv('http://heather.cs.ucdavis.edu/FasteR/data/Pima.csv',header=TRUE)
 ```
 
@@ -32,16 +32,16 @@ The dataset is in a CSV ("comma-separated values") file.  Here we read
 it, and assigned the resulting data frame to a variable we chose to name
 **pima**.
 
-Note that second argument, 'header=TRUE'.  A header in a file, if one
+Note that second argument, `header=TRUE`.  A header in a file, if one
 exists, is in the first line in the file.  It states what names the
 columns in the data frame are to have.  If the file doesn't have one,
-set **header** to FALSE.  You can always add names to your data frame
+set `header` to FALSE.  You can always add names to your data frame
 later (future lesson).
 
 > <span style="color: #b4637a;">Tip:</span>
 > It's always good to take a quick look at a new data frame:
 
-```r
+``` r
 > head(pima)
   pregnant glucose diastolic triceps insulin  bmi diabetes age test
 1        6     148        72      35       0 33.6    0.627  50    1
@@ -54,13 +54,13 @@ later (future lesson).
 [1] 768   9
 ```
 
-The **dim** function tells us that there are
+The `dim` function tells us that there are
 768 people in the study, 9 variables measured on each.
 
 Since this is a study of diabetes, let's take a look at the glucose
-variable.  R's **table** function is quite handy.
+variable.  R's `table` function is quite handy.
 
-```r
+``` r
 > table(pima$glucose)
 
   0  44  56  57  61  62  65  67  68  71  72  73  74  75  76  77  78  79  80  81 
@@ -90,21 +90,21 @@ either.
 
 Let's consider a version of the glucose data that at least excludes these 0s.
 
-```r
+``` r
 > pg <- pima$glucose
 > pg1 <- pg[pg > 0]
 > length(pg1)
 [1] 763
 ```
 
-As before, the expression "pg > 0" creates a vector of TRUEs and FALSEs.
-The filtering "pg[pg > 0]" will only pick up the TRUE cases, and sure
-enough, we see that **pg1** has only 763 cases, as opposed to the
+As before, the expression `pg > 0` creates a vector of TRUEs and FALSEs.
+The filtering `pg[pg > 0]` will only pick up the TRUE cases, and sure
+enough, we see that `pg1` has only 763 cases, as opposed to the
 original 768.
 
 Did removing the 0s make much difference?  Turns out it doesn't:
 
-```r
+``` r
 > mean(pg)
 [1] 120.8945
 > mean(pg1)
@@ -119,7 +119,7 @@ Rather than removing the 0s, it's better to recode them as NAs.  Let's
 do this, back in the original dataset so we keep all the data in
 one object:
 
-```r
+``` r
 > pima$glucose[pima$glucose == 0] <- NA
 ```
 
@@ -128,7 +128,7 @@ one object:
 > into smaller steps** (I recommend this especially for
 > beginners), as follows:
 
-```r
+``` r
 > glc <- pima$glucose
 > z <- glc == 0
 > glc[z] <- NA
@@ -139,47 +139,47 @@ Here is what the code does:
 
 - That first line just makes a copy of the original vector, to avoid
 clutter in the code.  
-- The second line determines which elements of **glc**
-are 0s, resulting in **z** being a vector of TRUEs and FALSEs.  
-- The third line then assigns NA to those elements in **glc** corresponding to
-the TRUEs. (Note the recycling of NA.)
+- The second line determines which elements of `glc`
+are 0s, resulting in `z` being a vector of TRUEs and FALSEs.  
+- The third line then assigns NA to those elements in `glc` corresponding to
+the TRUEs. (Note the recycling of `NA`.)
 - Finally, we need to have the changes in the original data, so we copy
-  **glc** to it.
+  `glc` to it.
 
 > <span style="color: #b4637a;">Tip:</span>
-> Note again the double-equal sign!  If we wish to test whether, say, ***a*** and
-> ***b*** are equal, the expression must be "a == b", not "a = b"; the
+> Note again the double-equal sign!  If we wish to test whether, say, `a` and
+> `b` are equal, the expression must be `a == b`, not `a = b`; the
 > latter would do `a <- b`.  This is a famous beginning programmer's
 > error.
 
 As a check, let's verify that we now have 5 NAs in the glucose variable:
 
-```r
+``` r
 > sum(is.na(pima$glucose))
 [1] 5
 ```
 
-Here the built-in R function **is.na** will return a vector of TRUEs and
+Here the built-in R function `is.na` will return a vector of TRUEs and
 FALSEs.  Recall that those values can always be treated as 1s and 0s,
 thus summable.  Thus we got our count, 5.
 
 Let's also check that the mean comes out right:
 
-```r
+``` r
 > mean(pima$glucose)
 [1] NA
 ```
 
-What went wrong?  By default, the **mean** function will *not* skip over
+What went wrong?  By default, the `mean` function will *not* skip over
 NA values; thus the mean was reported as NA too.  But we can instruct
 the function to skip the NAs:
 
-```r
+``` r
 > mean(pima$glucose,na.rm=TRUE)
 [1] 121.6868
 ```
 
-> **Your Turn:**  Determine which other columns in **pima** have
+> **Your Turn:**  Determine which other columns in `pima` have
 > suspicious 0s, and replace them with NA values.  
 > 
 > Now, look again at the plot we made earlier of the Nile flow histogram.

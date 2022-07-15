@@ -27,11 +27,11 @@ where &beta;<sub>0</sub> and &beta;<sub>1</sub> are the
 intercept and slope of the population regression line.
 
 So, we need to use the data to estimate the slope and intercept of that
-straight line, which R's **lm** ("linear model") function does for us.
+straight line, which R's `lm` ("linear model") function does for us.
 We'll use the original dataset, since the one with rounded ages was just
 to guide our intuition.
 
-```r
+``` r
 > lm(Weight ~ Age,data=mlb)
 
 Call:
@@ -42,19 +42,19 @@ Coefficients:
    181.4366       0.6936  
 ```
 Here the call instructed R to estimate the regression line of weight
-against age, based on the **mlb** data.
+against age, based on the `mlb` data.
 
 So the estimated slope and intercept are 0.6936 and 181.4366,
 respectively.  (Remember, these are just sample estimates.  We don't
 know the population values.) R has a provision by which we can draw the
 line, superimposed on our scatter plot:
 
-```r
+``` r
 > abline(181.4366,0.6936)
 ```
 
 ![alt text](https://raw.githubusercontent.com/matloff/fasteR/master/inst/images/Add_abline.png)
 
-> **Your Turn:** In the **mtcars** data, fit a linear model of the
+> **Your Turn:** In the `mtcars` data, fit a linear model of the
 > regression of MPG against weight; what is the estimated
 > effect of 100 pounds of extra weight?

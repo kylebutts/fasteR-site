@@ -39,7 +39,7 @@ for all major platforms.
 
 ### Startup
 
-If your screen has an RStudio icon, click it.  Otherwise type 'rstudio'
+If your screen has an RStudio icon, click it.  Otherwise type `rstudio`
 into a terminal window.
 
 ### Basic actions:
@@ -48,7 +48,7 @@ Again, there is a lot more one can do than the following, but we'll
 stick to the absolute basics.
 
 Note the pane in the lower-left portion of the RStudio screen.  By
-default, that is the Console pane, containing the usual R '>' prompt.
+default, that is the Console pane, containing the usual R `>` prompt.
 You can use it just as we have throughout this tutorial.  Note too that
 this is where your R output will appear.
 

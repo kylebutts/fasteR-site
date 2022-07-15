@@ -8,7 +8,7 @@ toc_num: 15
 
 One of the greatest things about R is its graphics capabilities.  There
 are excellent graphics features in base R, and then many contributed
-packages, with the best known being **ggplot2** and **lattice**.  These
+packages, with the best known being `ggplot2` and `lattice`.  These
 latter two are quite powerful, and will be the subjects of future
 lessons, but for now we'll concentrate on the base.
 
@@ -16,7 +16,7 @@ As our example here, we'll use a dataset I compiled on Silicon Valley
 programmers and engineers, from the US 2000 census.  Let's read 
 in the data and take a look at the first records:
 
-```r
+``` r
 > pe <- 
    read.table('https://raw.githubusercontent.com/matloff/fasteR/master/data/prgeng.txt',header=TRUE)
 > head(pe)
@@ -29,19 +29,19 @@ in the data and take a look at the first records:
 6 57.70413   11 100   1       0       0
 ```
 
-We used **read.table** here because the file is not of the CSV type. It
+We used `read.table` here because the file is not of the CSV type. It
 uses blank spaces rather than commas as its delineator between fields.
 
-Here **educ** and **occ** are codes, for levels of education and
+Here `educ` and `occ` are codes, for levels of education and
 different occupations.  For now, let's not worry about the specific
 codes.  (You can find them in the
 [Census Bureau document](https://www.census.gov/prod/cen2000/doc/pums.pdf).
-For instance, search for "Educational Attainment" for the **educ**
+For instance, search for "Educational Attainment" for the `educ`
 variable.)
 
 Let's start with a scatter plot of wage vs. age:
 
-```r
+``` r
 > plot(pe$age,pe$wageinc)
 ```
 
@@ -52,36 +52,36 @@ points, thus filling certain parts of the screen.  So, let's just plot a
 random sample, say 2500.  (There are other ways of handling the problem,
 say with smaller dots or *alpha blending*.)
 
-```r
+``` r
 > indxs <- sample(1:nrow(pe),2500)
 > pe2500 <- pe[indxs,]
 ```
 
-Recall that the **nrow()** function returns the number of rows in the
-argument, which in this case is 20090, the number of rows in **pe**.
+Recall that the `nrow()` function returns the number of rows in the
+argument, which in this case is 20090, the number of rows in `pe`.
 
-R's **sample** function does what its name implies.  Here it randomly
+R's `sample` function does what its name implies.  Here it randomly
 samples 2500 of the numbers from 1 to 20090.  We then extracted those
-rows of **pe**, in a new data frame **pe2500**.
+rows of `pe`, in a new data frame `pe2500`.
 
 > <span style="color: #b4637a;">Tip:</span>
 > Note again that it's clearer to break complex operations into simpler,
 > smaller ones.  I could have written the more compact
 
-```r
+``` r
 > pe2500 <- pe[sample(1:nrow(pe),2500),]
 ```
 
 but it would be hard to read that way.  I also use direct function
 composition sparingly, preferring to break
 
-```r
+``` r
 h(g(f(x),3)
 ```
 
 into
 
-```r
+``` r
 y <- f(x) 
 z <- g(y,3) 
 h(z) 
@@ -89,7 +89,7 @@ h(z)
 
 So, here is the new plot:
 
-```r
+``` r
 > plot(pe2500$age,pe2500$wageinc)
 ```
 
@@ -110,13 +110,13 @@ $350,000 (probably out of privacy concerns).
 
 We can break things down by gender, via color coding:
 
-```r
+``` r
 > plot(pe2500$age,pe2500$wageinc,col=as.factor(pe2500$sex))
 ```
 
-The **col** argument indicates we wish to color code, in this case by
-gender.  Note that **pe2500$sex** is a numeric vector, but **col**
-requires an R factor; the function **as.factor** does the conversion.
+The `col` argument indicates we wish to color code, in this case by
+gender.  Note that `pe2500$sex` is a numeric vector, but `col`
+requires an R factor; the function `as.factor` does the conversion.
 
 ![alt text](https://raw.githubusercontent.com/matloff/fasteR/master/inst/images/WageVsAge3.png)
 
@@ -127,14 +127,14 @@ statistical analysis is needed (a future lesson).
 It would be good to have better labels on the axes, and maybe smaller
 dots:
 
-```r
+``` r
 > plot(pe2500$age,pe2500$wageinc,col=as.factor(pe2500$sex),xlab='age',ylab='wage',cex=0.6)
 ```
 
 ![alt text](https://raw.githubusercontent.com/matloff/fasteR/master/inst/images/WageVsAge4.png)
 
-Here 'xlab' meant "X label" and similarly for 'ylab'.  The argument 'cex
-= 0.6' means "Draw the dots at 60% of default size."
+Here `xlab` meant "X label" and similarly for `ylab`.  The argument `cex
+= 0.6` means "Draw the dots at 60% of default size."
 
 Now, how did the men's dots come out black and the women's red?  The men
 were coded 1, the women 2.  So men got color 1 in the default palette,

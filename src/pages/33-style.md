@@ -61,7 +61,7 @@ at a top university computer science department puts it well:
 *Don't be under the illusion that your code is self-documenting; it
   isn't!  A typical comment might look like this:*
 
-```r
+``` r
 w <- f(w)
 # at this point, the data frame w will consist of the original rows for
 # people over age 65 and who are homeowners
@@ -80,7 +80,7 @@ code).  This will really help you focus during the coding process.
 
 **Indent your code:**
 
-```r
+``` r
 if (x < y) {
    x <- y^2
    z <- x + y
@@ -89,7 +89,7 @@ if (x < y) {
 
 is much easier to read than
 
-```r
+``` r
 if (x < y) {
 x <- y^2
 z <- x + y
@@ -98,9 +98,9 @@ z <- x + y
 
 **Write your code in top-down fashion:**
 
-If you have a function **f** that is more than, say, a dozen lines long,
-break its code into calls to smaller functions, say **g** and **h**.
-Then **f** will consist of those calls, plus some "glue" lines to deal
+If you have a function `f` that is more than, say, a dozen lines long,
+break its code into calls to smaller functions, say `g` and `h`.
+Then `f` will consist of those calls, plus some "glue" lines to deal
 with the return values and so on.  Of course, it's a matter of taste as
 to break things up that way, but the point is that it makes your code
 both easier to *read* (by others, or by yourself later), and even more
@@ -114,15 +114,15 @@ situations in which code may fail in spite of being generally sound.
 
 For instance, consider this code:
 
-```r
+``` r
 > i <- 5
 > 1:i
 [1] 1 2 3 4 5
 ```
 
-But what about the special case in which **i = 0**?
+But what about the special case in which `i = 0`?
 
-```r
+``` r
 > i <- 0
 > 1:i
 [1] 1 0
@@ -131,7 +131,7 @@ But what about the special case in which **i = 0**?
 This may not be what you wanted.  You probably should insert a check,
 say
 
-```r
+``` r
 if (i >= 1) i:5
 ```
 

@@ -13,7 +13,7 @@ various tools and materials, and the goal is to put these together in a
 creative way to produce the end result, the house.
 
 It's the same with R.  The tools here are the various functions, e.g.
-**mean** and **which**, and the materials are one's data.  One then must
+`mean` and `which`, and the materials are one's data.  One then must
 creatively put them together to achieve one's goal, say ferreting out
 patterns in ridership in a public transportation system.  Again, it is a
 creative process; there is no formula for anything.  But that is what

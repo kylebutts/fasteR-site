@@ -11,9 +11,9 @@ the famous [bike sharing
 data](ttps://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset).
 (See the latter site for the documentation; e.g. temperature has been
 scaled, rather than measured in degrees.)
-It's in a **.zip** file, so it will need a little extra preprocessing:
+It's in a `.zip` file, so it will need a little extra preprocessing:
 
-```r
+``` r
 # fetch from Web, and store the downloaded data to the file 'bike.sip'
 > download.file('https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip','bike.zip')
 > unzip('bike.zip')  # out come the files 'day.csv' and 'hour.csv'
@@ -42,16 +42,16 @@ minimum to the maximum value of this variable.
 One new concept here is the presence of *indicator* variables, more
 informally known as *dummy variables*.  These are variables taking only
 the values 0 and 1, with a 1 "indicating" that some trait is present.
-For instance, the **holiday** variable is either 1 or 0, depending on
+For instance, the `holiday` variable is either 1 or 0, depending on
 whether that day was a holiday (which might affect the demand for bikes
 that day).
 
 Those who manage this bike sharing service may wish to predict future
 demand for bikes, say the next day, to aid in their planning.  As an
 example, let's try to predict the number of casual riders from some
-weather variables and the dummy variable **workingday**.
+weather variables and the dummy variable `workingday`.
 
-```r
+``` r
 > day1 <- day[,c(8,10,12:14)]
 > head(day1)
   workingday     temp      hum windspeed casual
@@ -70,10 +70,10 @@ Coefficients:
  
 ```
 
-The expression "casual ~ ." means, "regress **casual** against all the
+The expression `casual ~ .` means, "regress `casual` against all the
 other variables in this dataset.
 
-These numbers make sense.  The negative coefficient for **workingday**
+These numbers make sense.  The negative coefficient for `workingday`
 says that, all else equal, there tend to be fewer casual riders on a
 work day. 
 
@@ -81,30 +81,30 @@ By the way, we probably should expect fewer riders on very
 cold or very hot days, so we may wish to add a quadratic term to the
 model, say by doing
 
-```r
+``` r
 day1$temp2 <- temp^2  # the caret symbol means exponentiation, 
                       # i.e. 2nd power here
 ```
 
-This would add the indicated column to **day1**.  But we will not pursue
+This would add the indicated column to `day1`.  But we will not pursue
 this for now.
 
 One of the very important features of R is *generic functions*.  These
 are functions that take on different roles for objects of different
-classes.  One such example is the **plot** function we saw earlier.
+classes.  One such example is the `plot` function we saw earlier.
 
-Try typing "plot(lmout)" at the R prompt.  You will be shown several
+Try typing `plot(lmout)` at the R prompt.  You will be shown several
 plots desribing the fitted regression model.  What happened was that the
-function **plot** is just a placeholder.  When we type "plot(lmout)" R
+function `plot` is just a placeholder.  When we type `plot(lmout)` R
 says, "Hmm, what kind of object is **lmout**?  Oh, it's of class
-**'lm'**.  So I'm going to transfer (*dispatch*) this call to one
-involving a special plot function for that class, **plot.lm**."  This is
-in contrast to our previous calls to **plot**, which were invoked on
-vectors; those calls were dispatched to **plot.default**.
+`'lm'`.  So I'm going to transfer (*dispatch*) this call to one
+involving a special plot function for that class, `plot.lm`."  This is
+in contrast to our previous calls to `plot`, which were invoked on
+vectors; those calls were dispatched to `plot.default`.
 
-Another generic function is **summary**:
+Another generic function is `summary`:
 
-```r
+``` r
 > summary(Nile)
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   456.0   798.5   893.5   919.4  1032.5  1370.0 
@@ -122,9 +122,9 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ...
 ```
 
-In the first case, the call to **summary**, invoked on a vector, was
-dispatched to **summary.default**, while in the second the transfer was
-to **summary.lm**.  In both cases, whoever it was in the R development
+In the first case, the call to `summary`, invoked on a vector, was
+dispatched to `summary.default`, while in the second the transfer was
+to `summary.lm`.  In both cases, whoever it was in the R development
 team who wrote these functions decided what summary information should
 be printed out automatically.
 
@@ -137,17 +137,17 @@ minus 1.96 times the *standard error*, 112.98.  Note carefully that
 p-values have long been considered to be poor methodology; see 
 the [ASA statement](https://amstat.tandfonline.com/doi/full/10.1080/00031305.2016.1154108).
 
-Another important generic function is **predict**.  Say we want to
-predict **casual** for a work day in which **temp**, **hum** and
-**windspeed** are 0.26, 0.55, 0.18, respectively.
+Another important generic function is `predict`.  Say we want to
+predict **casual** for a work day in which `temp`, `hum` and
+`windspeed` are 0.26, 0.55, 0.18, respectively.
 
-```r
+``` r
 > newCase <- data.frame(workingday=1, temp=0.26, hum=0.55, windspeed=0.18)
 > predict(lmout,newCase)
        1 
 162.6296 
 ```
 
-The **predict** function, which here is **predict.lm**, assumes that the
+The `predict` function, which here is `predict.lm`, assumes that the
 new cases to be predicted are supplied as a data frame, with the same
 column names as with the original data.

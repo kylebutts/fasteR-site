@@ -12,7 +12,7 @@ inspection.)
 
 First, let's review what we saw in a previous lesson:
 
-```r
+``` r
 > which1200 <- which(Nile > 1200)
 > Nile[which1200]
 [1] 1210 1230 1370 1210 1250 1260 1220
@@ -24,7 +24,7 @@ similar to extract *data frame rows or columns*.  Here is how:
 Continuing the Vitamin C example, let's compare mean tooth length for
 the two types of supplements.  Here is the code:
 
-```r
+``` r
 > whichOJ <- which(tg$supp == 'OJ')
 > whichVC <- which(tg$supp == 'VC')
 > mean(tg[whichOJ,1])
@@ -33,25 +33,25 @@ the two types of supplements.  Here is the code:
 [1] 16.96333
 ```
 
-In the first two lines above, we found which rows in **tg** (or
-equivalently, which elements in **tg$supp**) had the OJ supplement, and
-recorded those row numbers in **whichOJ**.  Then we did the same for VC.
+In the first two lines above, we found which rows in `tg` (or
+equivalently, which elements in `tg$supp`) had the OJ supplement, and
+recorded those row numbers in `whichOJ`.  Then we did the same for VC.
 
-Now, look at the expression **tg[whichOJ,1]**.  Remember, data frames
+Now, look at the expression `tg[whichOJ,1]`.  Remember, data frames
 are accessed with two subscript expressions, one for rows, one for
 colums, in the format
 
-```r
+``` r
 d[the rows we want, the columns we want]
 ```
 
-So, **tg[whichOJ,1]** says to restrict attention to the OJ rows, and
+So, `tg[whichOJ,1]` says to restrict attention to the OJ rows, and
 only column 1, tooth length.  We then find the mean of those restricted
 numberss.  This turned out to be 20.66333.  Then do the same for VC.
 
 Again, if we are pretty experienced, we can skip steps:
 
-```r
+``` r
 > tgoj <- tg[tg$supp == 'OJ',]
 > tgvc <- tg[tg$supp == 'VC',]
 > mean(tgoj$len)
@@ -77,5 +77,5 @@ We'll be using this technique often in this tutorial, and it is central
 to R usage in the real world.
 
 > **Your turn:**  Try some of these operations on R's built-in
-> **faithful** dataset.  For instance, find the number of eruptions for
+> `faithful` dataset.  For instance, find the number of eruptions for
 > which the waiting time was more than 80 minutes.
