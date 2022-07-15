@@ -1,0 +1,61 @@
+---
+import chapters from "../../public/TOC.json"
+const props = Astro.props
+---
+
+<script>
+  let menuButton = document.getElementById("menu-button")
+  let leftSidebar = document.getElementById("left-sidebar")
+
+  menuButton.addEventListener("click", () => {
+    leftSidebar.classList.toggle("hidden")
+    leftSidebar.classList.toggle("fixed")
+  })
+  
+</script>
+
+<nav class="fixed top-0 left-0 right-0 h-[var(--nav-height)] px-2 md:px-0 border-b-2 border-slate-100">
+  <div
+    class="bg-white w-full px-2 lg:px-12 h-full flex flex-row justify-between items-center">
+    <div class="text-[#56949f] text-bold text-2xl">fasteR</div>
+
+    <div class="flex flex-row gap-x-4 items-center">
+      <span class="text-2xl">{props.currentPage.title}</span>
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer xl:hidden"
+          viewBox="0 0 20 20" fill="currentColor"  id="menu-button">
+          <path fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd" />
+        </svg>
+
+    </div>
+  </div>
+</nav>
+
+<!-- On Mobile, fill up page -->
+<!-- On wider screens, left aside -->
+<aside
+  id = "left-sidebar"
+  class="z-10 hidden xl:block xl:fixed px-12 pb-12 top-24 left-0 right-0 h-[calc(100%_-_var(--nav-height))] xl:right-auto w-full xl:w-[var(--left-sidebar-width)] overflow-y-scroll bg-white xl:px-12">
+  <div class="sticky top-0">
+    <span class="bg-white block text-xl font-bold tracking-tight pt-8">Table of Contents</span>
+    <div class="h-8 bg-gradient-to-b from-white to-transparent"></div>
+  </div>
+
+  <ul role="list" class="">
+    {chapters.map(chapter => {
+    let path = chapter.filename.match("src/pages/(.*).md")[1]
+    path = path == "index" ? "/" : "/" + path
+
+    let active = (props.currentPage.filename == chapter.filename)
+    let liClass = active ? "block border-l-2 pl-4 py-2 border-[#89b4bc] text-[#56949f] text-md" : "block border-l-2 pl-4 py-2 border-[#eef4f5] hover:border-[#89b4bc] text-md text-slate-600 hover:text-slate-900";
+
+    return (<li class={liClass}>
+      <a href={path}>
+        {chapter.title}
+      </a>
+    </li>)
+    })}
+  </ul>
+</aside>

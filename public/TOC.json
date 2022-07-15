@@ -1,0 +1,282 @@
+[
+  {
+    "lesson": "false",
+    "toc_num": 1,
+    "filename": "src/pages/index.md",
+    "slug": "index",
+    "title": "fasteR: Fast Lane to Learning R!"
+  },
+  {
+    "lesson": 1,
+    "toc_num": 2,
+    "filename": "src/pages/01-overview.md",
+    "slug": "overview",
+    "title": "Getting Started"
+  },
+  {
+    "lesson": 2,
+    "toc_num": 3,
+    "filename": "src/pages/02-firstr.md",
+    "slug": "firstr",
+    "title": "First R Steps"
+  },
+  {
+    "lesson": 3,
+    "toc_num": 4,
+    "filename": "src/pages/03-vecidxs.md",
+    "slug": "vecidxs",
+    "title": "Vectors and Indices"
+  },
+  {
+    "lesson": 4,
+    "toc_num": 5,
+    "filename": "src/pages/04-less2.md",
+    "slug": "less2",
+    "title": "More on Vectors"
+  },
+  {
+    "lesson": 5,
+    "toc_num": 6,
+    "filename": "src/pages/05-less3.md",
+    "slug": "less3",
+    "title": "On to Data Frames!"
+  },
+  {
+    "lesson": 6,
+    "toc_num": 7,
+    "filename": "src/pages/06-less4.md",
+    "slug": "less4",
+    "title": "R Factor Class"
+  },
+  {
+    "lesson": 7,
+    "toc_num": 8,
+    "filename": "src/pages/07-extractdf.md",
+    "slug": "extractdf",
+    "title": "Extracting Rows/Columns from Data Frames"
+  },
+  {
+    "lesson": 8,
+    "toc_num": 9,
+    "filename": "src/pages/08-moreextract.md",
+    "slug": "moreextract",
+    "title": "More Examples of Extracting Rows, Columns"
+  },
+  {
+    "lesson": 9,
+    "toc_num": 10,
+    "filename": "src/pages/09-tapply.md",
+    "slug": "tapply",
+    "title": "The tapply Function"
+  },
+  {
+    "lesson": 10,
+    "toc_num": 11,
+    "filename": "src/pages/10-less5.md",
+    "slug": "less5",
+    "title": "Data Cleaning"
+  },
+  {
+    "lesson": 11,
+    "toc_num": 12,
+    "filename": "src/pages/11-less6.md",
+    "slug": "less6",
+    "title": "The R List Class"
+  },
+  {
+    "lesson": 12,
+    "toc_num": 13,
+    "filename": "src/pages/12-less7.md",
+    "slug": "less7",
+    "title": "Another Look at the Nile Data"
+  },
+  {
+    "lesson": 13,
+    "toc_num": 14,
+    "filename": "src/pages/13-pause1.md",
+    "slug": "pause1",
+    "title": "Pause to Reflect"
+  },
+  {
+    "lesson": 14,
+    "toc_num": 15,
+    "filename": "src/pages/14-less8.md",
+    "slug": "less8",
+    "title": "Introduction to Base R Graphics"
+  },
+  {
+    "lesson": 15,
+    "toc_num": 16,
+    "filename": "src/pages/15-less9.md",
+    "slug": "less9",
+    "title": "More on Base Graphics"
+  },
+  {
+    "lesson": 16,
+    "toc_num": 17,
+    "filename": "src/pages/16-less10.md",
+    "slug": "less10",
+    "title": "Writing Your Own Functions"
+  },
+  {
+    "lesson": 17,
+    "toc_num": 18,
+    "filename": "src/pages/17-less11.md",
+    "slug": "less11",
+    "title": "'For' Loops"
+  },
+  {
+    "lesson": 18,
+    "toc_num": 19,
+    "filename": "src/pages/18-ftnbl.md",
+    "slug": "ftnbl",
+    "title": "Functions with Blocks"
+  },
+  {
+    "lesson": 19,
+    "toc_num": 20,
+    "filename": "src/pages/19-edt.md",
+    "slug": "edt",
+    "title": "Text Editing and IDEs"
+  },
+  {
+    "lesson": 20,
+    "toc_num": 21,
+    "filename": "src/pages/20-ifelse.md",
+    "slug": "ifelse",
+    "title": "If, Else, Ifelse"
+  },
+  {
+    "lesson": 21,
+    "toc_num": 22,
+    "filename": "src/pages/21-keepfit.md",
+    "slug": "keepfit",
+    "title": "Do Professional Athletes Keep Fit?"
+  },
+  {
+    "lesson": 22,
+    "toc_num": 23,
+    "filename": "src/pages/22-linreg1.md",
+    "slug": "linreg1",
+    "title": "Linear Regression Analysis, I"
+  },
+  {
+    "lesson": 23,
+    "toc_num": 24,
+    "filename": "src/pages/23-s3.md",
+    "slug": "s3",
+    "title": "S3 classes"
+  },
+  {
+    "lesson": 24,
+    "toc_num": 25,
+    "filename": "src/pages/24-less15.md",
+    "slug": "less15",
+    "title": "Baseball Player Analysis (cont'd.)"
+  },
+  {
+    "lesson": 25,
+    "toc_num": 26,
+    "filename": "src/pages/25-cran.md",
+    "slug": "cran",
+    "title": "R Packages, CRAN, Etc."
+  },
+  {
+    "lesson": 26,
+    "toc_num": 27,
+    "filename": "src/pages/26-advanced.md",
+    "slug": "advanced",
+    "title": "A Pause, Before Going on to Advanced Topics"
+  },
+  {
+    "lesson": 27,
+    "toc_num": 28,
+    "filename": "src/pages/27-gg2first.md",
+    "slug": "gg2first",
+    "title": "The ggplot2 Graphics Package"
+  },
+  {
+    "lesson": 28,
+    "toc_num": 29,
+    "filename": "src/pages/28-appfam.md",
+    "slug": "appfam",
+    "title": "Should You Use Functional Programming?"
+  },
+  {
+    "lesson": 29,
+    "toc_num": 30,
+    "filename": "src/pages/29-txt.md",
+    "slug": "txt",
+    "title": "Simple Text Processing, I"
+  },
+  {
+    "lesson": 30,
+    "toc_num": 31,
+    "filename": "src/pages/30-txt1.md",
+    "slug": "txt1",
+    "title": "Simple Text Processing, II"
+  },
+  {
+    "lesson": 31,
+    "toc_num": 32,
+    "filename": "src/pages/31-linreg2.md",
+    "slug": "linreg2",
+    "title": "Linear Regression Analysis, II"
+  },
+  {
+    "lesson": 32,
+    "toc_num": 33,
+    "filename": "src/pages/32-dates.md",
+    "slug": "dates",
+    "title": "Work with the R Date Class"
+  },
+  {
+    "lesson": 33,
+    "toc_num": 34,
+    "filename": "src/pages/33-style.md",
+    "slug": "style",
+    "title": "Tips on R Coding Style and Strategy"
+  },
+  {
+    "lesson": 34,
+    "toc_num": 35,
+    "filename": "src/pages/34-logit.md",
+    "slug": "logit",
+    "title": "The Logistic Model"
+  },
+  {
+    "lesson": 35,
+    "toc_num": 36,
+    "filename": "src/pages/35-fd.md",
+    "slug": "fd",
+    "title": "Files and Folders/Directories"
+  },
+  {
+    "lesson": 36,
+    "toc_num": 37,
+    "filename": "src/pages/36-whl.md",
+    "slug": "whl",
+    "title": "R 'while' Loops"
+  },
+  {
+    "lesson": 37,
+    "toc_num": 38,
+    "filename": "src/pages/37-forMore.md",
+    "slug": "forMore",
+    "title": "To Learn More"
+  },
+  {
+    "lesson": "false",
+    "toc_num": 39,
+    "filename": "src/pages/thanks.md",
+    "slug": "thanks",
+    "title": "Thanks"
+  },
+  {
+    "lesson": "false",
+    "toc_num": 40,
+    "filename": "src/pages/ide.md",
+    "slug": "ide",
+    "title": "Installing and Using IDEs"
+  }
+]

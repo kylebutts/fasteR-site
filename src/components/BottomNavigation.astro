@@ -1,0 +1,32 @@
+---
+const { prevPage, nextPage } = Astro.props;
+let prevHref = prevPage?.filename.match("src/pages/(.*).md")[1] || null
+prevHref = (prevHref == "index") ? "/" : "/" + prevHref
+let nextHref = nextPage?.filename.match("src/pages/(.*).md")[1] || null
+nextHref = (nextHref == "index") ? "/" : "/" + nextHref
+---
+
+<div
+  class="not-prose px-4 md:px-8 border-2 border-[#797593] rounded-lg mt-24 grid grid-cols-2 gap-4 divide-x-2 divide-[#797593] ">
+  <div class="text-left py-4">
+    { prevPage === null ?
+    <></> :
+    <a href={prevHref}>
+      <div class="font-light text-md tracking-wide text-[#907aa9]">← PREVIOUS
+      </div>
+
+      <div>{prevPage.title}</div>
+    </a>
+    }
+  </div>
+  <div class="text-right py-4">
+    { nextPage === null ?
+    <></> :
+    <a href={nextHref}>
+      <div class="font-light text-md tracking-wide text-[#907aa9]">NEXT →</div>
+
+      <div>{nextPage.title}</div>
+    </a>
+    }
+  </div>
+</div>

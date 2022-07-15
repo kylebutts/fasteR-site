@@ -1,0 +1,32 @@
+---
+import "../styles/global.css"
+import TOC from '../../public/TOC.json';
+import Header from '../components/Header.astro';
+import BottomNavigation from '../components/bottomNavigation.astro';
+const { content } = Astro.props;
+
+let currentPage = TOC.filter(page => page.toc_num === content.toc_num)[0]
+let prevPage = TOC.filter(page => page.toc_num === content.toc_num - 1)[0] || null
+let nextPage = TOC.filter(page => page.toc_num === content.toc_num + 1)[0] || null
+---
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>fasteR</title>
+</head>
+
+<body class="text-[#575279]">
+  <Header currentPage={currentPage} client:idle />
+  <div class="w-full xl:w-[calc(100%-var(--left-sidebar-width))] xl:ml-[calc(1rem_+_var(--left-sidebar-width))] mt-[var(--nav-height)] px-2 lg:px-0 pt-10 pb-24">
+    <div class="prose lg:prose-lg xl:prose-xl mx-auto">
+      <slot />
+      
+      <BottomNavigation prevPage={prevPage} nextPage={nextPage} />
+    </div>
+  </div>
+</body>
+
+</html>
