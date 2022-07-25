@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 4
 toc_num: 5
 ---
@@ -45,21 +50,21 @@ look at a small example first:
 ```
 
 First, notice something odd here, in the expression `x > 8`. Here
-**x** is a vector, 3 elements in length, but 8 is just a number.  It
-would seem that it's nnonsense to ask whether a vector is greater than a
+`x` is a vector, 3 elements in length, but 8 is just a number.  It
+would seem that it's nonsense to ask whether a vector is greater than a
 number; they're different animals.
 
 But R makes them "the same kind" of animal, by extending that number 8
 to a 3-element vector 8,8,8.  This is called *recycling*.  This sets up
 an element-by-element comparison:  Then, the 5 in `x` is compared to
-the first 8, yielding FALSE i.e. 5 is NOT greater than 8.  Then 12 is
-compared to the second 8, yielding TRUE, and then the comparison of 13
-to the third 8 yields another TRUE.  So, we get the vector
-FALSE,TRUE,TRUE.
+the first 8, yielding `FALSE` i.e. 5 is NOT greater than 8.  Then 12 is
+compared to the second 8, yielding `TRUE`, and then the comparison of 13
+to the third 8 yields another `TRUE`.  So, we get the vector
+`FALSE`, `TRUE`, `TRUE`.
 
-Fine, but how will `sum` add up some TRUEs and FALSEs?  The
-answer is that R, like most computer languages, treats TRUE and FALSE as
-1 and 0, respectively.  So we summed the vector (0,1,1), yielding 2.
+Fine, but how will `sum` add up some `TRUE`s and `FALSE`s?  The
+answer is that R, like most computer languages, treats `TRUE` and `FALSE` as
+`1` and `0`, respectively.  So we summed the vector (0,1,1), yielding 2.
 
 Getting back to the question of the number of years in which the Nile
 flow exceeded 1200, let's look at that expression again:
@@ -70,14 +75,18 @@ flow exceeded 1200, let's look at that expression again:
 
 Since the vector `Nile` has length 100, that number 1200 will be
 recycled into a vector of one hundred copies of 1200.  The `>`
-comparison will then yield 100 TRUEs and FALSEs, so summing gives us the
-number of TRUEs, exactly what we want.
+comparison will then yield 100 `TRUE`s and `FALSE`s, so summing gives us the
+number of `TRUE`s, exactly what we want.
+
+<YourTurn>
 
 > **Your Turn:** Try a few other experiments of your choice using `sum`.
 > I'd suggest starting with finding the sum of the first 25 elements in
 > `Nile`.  You may wish to start with experiments on a small vector, say
 > (2,1,1,6,8,5), so you will know that your answers are correct.
 > Remember, you'll learn best nonpassively.  Code away!
+
+</YourTurn>
 
 A question related to *how many* years had a flow above 1200 is *which*
 years had that property.  Well, R actually has a `which` function:
@@ -143,8 +152,13 @@ Less bold is the notion of negative indices, e.g.
 [1] 12 13  8
 ```
 
-Here we are asking for all of `x` *except* for `x[1]`.  Can you
-guess what `x[c(-1,-4)]` evaluates to?  Guess first, then try it out.
+<YourTurn>
+
+> **Your Turn:** 
+> Here we are asking for all of `x` *except* for `x[1]`.  Can you
+> guess what `x[c(-1,-4)]` evaluates to?  Guess first, then try it out.
+
+</YourTurn>
 
 ### Recap:  What have we learned in this lesson?
 

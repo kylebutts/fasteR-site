@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 18
 toc_num: 19
 ---
@@ -64,8 +69,12 @@ isn't `d` changing, and isn't `d` the same as `pima`?  Well, no;
 `pima` does not.  So, if we want `pima` to change, we must reassign
 the output of the function back to `pima`, as we did above.
 
+<YourTurn>
+
 > **Your Turn**: Write a function with call form `countNAs(dfr)`,
 > which prints the numbers of NAs in each column of the data frame
 > `dfr`.  You'll need to use the built-in `is.na()` functon; execute
 > `is.na(c(5,NA,13,28,NA))` at the R command prompt to see what it
 > does.  Test it on a small artificial dataset that you create.
+
+</YourTurn>

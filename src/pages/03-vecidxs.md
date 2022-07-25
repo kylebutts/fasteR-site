@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 3
 toc_num: 4
 ---
@@ -114,10 +119,12 @@ Keep in mind that although `Nile` and `n81100` now have identical
 contents, they are *separate* vectors; if one changes, the other will
 not.
 
+<YourTurn>
 
 > **Your Turn:** Devise and try variants of the above, say finding the
 > mean over the years 1945-1960.
 
+</YourTurn>
 
 Another oft-used function is `length`, which gives the number of
 elements in the vector, e.g.

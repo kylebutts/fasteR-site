@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 21
 toc_num: 22
 ---
@@ -121,10 +126,14 @@ plot.  For instance, in `taout` we see that for age group 25, the mean
 weight was 200.2427, so there is a dot in the graph for the point
 (25,200.2427).
 
+<YourTurn>
+
 > **Your Turn:** There are lots of little experiments you can do on this
 > dataset.  For instance, use `tapply` to find the mean weight for
 > each position; is the stereotype of the `beefy` catcher accurate, i.e.
 > is the mean weight for that position higher than for the others?
 > Another suggestion:  Plot the number of players at each age group, to
 > visualize the ages at which the bulk of the players fall.
+
+</YourTurn>
  

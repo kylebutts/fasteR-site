@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 22
 toc_num: 23
 ---
@@ -55,6 +60,10 @@ line, superimposed on our scatter plot:
 
 ![alt text](https://raw.githubusercontent.com/matloff/fasteR/master/inst/images/Add_abline.png)
 
+<YourTurn>
+
 > **Your Turn:** In the `mtcars` data, fit a linear model of the
 > regression of MPG against weight; what is the estimated
 > effect of 100 pounds of extra weight?
+
+</YourTurn>

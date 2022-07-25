@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 8
 toc_num: 9
 ---
@@ -164,8 +169,12 @@ is a creative process*.  It's like a grocery store and cooking:  The
 store has lots of different potential ingredients, and you decide which
 ones to buy and combine into a meal.
 
+<YourTurn>
+
 > **Your turn:**  Try some of these operations on R's built-in
 > `faithful` dataset.  For instance, find the number of eruptions for
 > which `eruptions` was greater than 3 and waiting time was more than 80
 > minutes.
+
+</YourTurn>
 

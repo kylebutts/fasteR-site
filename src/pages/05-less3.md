@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 5
 toc_num: 6
 ---
@@ -81,9 +86,13 @@ The element in row 3, column 1 in the *data frame* `tg` is element 3
 in the *vector* `tg$letn`.  This duality between data frames and
 vectors is often exploited in R.
 
+<YourTurn>
+
 > **Your Turn:**  The above examples are fundamental to R, so you should
 > conduct a few small experiments on your own this time, little variants
 > of the above.  The more you do, the better!
+
+</YourTurn>
 
 For any subset of a data frame `d`, we can extract whatever rows and
 columns we want using the format
@@ -215,6 +224,8 @@ One can use negative indices for rows and columns as well, e.g.
 6 10.0  0.5
 ```
 
+<YourTurn>
+
 > **Your Turn:** Devise your own little examples with the `ToothGrowth`
 > data.  For instance, write code that finds the number of cases in which
 > the tooth length was less than 16.  Also, try some examples with another
@@ -224,6 +235,8 @@ One can use negative indices for rows and columns as well, e.g.
 > last eruption.  As mentioned, these operations are key features of R,
 > so devise and run as many examples as possible; err on the side of
 > doing too many!
+
+</YourTurn>
 
 ### Recap:  What have we learned in this lesson?
 

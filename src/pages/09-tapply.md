@@ -1,15 +1,24 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 9
 toc_num: 10
 ---
  
 ## <a name="tapply"> </a> Lesson 9:  The tapply Function
 
-> <span style="color: #b4637a;">Tip:</span> Often in R there is a shorter, more
+<Tip>
+
+> **Tip:** Often in R there is a shorter, more
 > compact way of doing things.  That's the case here; we can use the
 > magical `tapply` function in the above example.  In fact, we can do it
 > in just one line.
+
+</Tip>
 
 ``` r
 > tapply(tg$len,tg$supp,mean)
@@ -67,11 +76,15 @@ child's age in `x`.  Similarly, it wouldn't be right if `g` had had
 only 3 elements, apparently leaving the fourth child without a specified
 gender.
 
-> <span style="color: #b4637a;">Tip:</span>
+<Tip>
+
+> **Tip:**
 > If `g` had been of the wrong length, we would have gotten an error,
 > "Arguments must be of the same length."  This is a common error in R
 > code, so watch out for it, keeping in mind WHY the lengths must be the
 > same.
+
+</Tip>
 
 Instead of `mean`, we can use any function as that third argument in
 **tapply**.  Here is another example, using the built-in dataset
@@ -89,6 +102,8 @@ subset.  We see that each subset had length 10, i.e. the experiment had
 assigned 10 plants to the control, 10 to treatment 1 and 10 to treatment
 2.
 
+<YourTurn>
+
 > **Your Turn:**  One of the most famous built-in R datasets is
 > `mtcars`, which has various measurements on cars from the 60s and 70s.
 > Lots of opportunties for you to cook up little experiments here!  You
@@ -96,6 +111,8 @@ assigned 10 plants to the control, 10 to treatment 1 and 10 to treatment
 > 6- and 8-cylinder cars.  Another suggestion would be to find how many
 > cars there are in each cylinder category, using `tapply`.  As usual,
 > the more examples you cook up here, the better!
+
+</YourTurn>
 
 By the way, the `mtcars` data frame has a "phantom" column.  
 
@@ -163,10 +180,16 @@ have a function call on the *left* side of an assignment.  This is
 actually common in R.  It stems from the fact that `<-` is actually a
 function!  But this is not the place to go into that.)
 
+<YourTurn>
+
 > **Your Turn:**  Try some experiments with the `mtcars` data, e.g.
 > finding the mean horsepower for 6-cylinder cars.
 
-> <span style="color: #b4637a;">Tip:</span>
+</YourTurn>
+
+<Tip>
+
+> **Tip:**
 > As a beginner (and for that matter later on), you should NOT be obsessed
 > with always writing code in the "optimal" way, including in terms of
 > compactness of the code.  It's much more important
@@ -174,3 +197,5 @@ function!  But this is not the place to go into that.)
 > later.  In this case, though, `tapply` actually aids clarity, and it
 > is so ubiquitously useful that we have introduced it early in this
 > tutorial.  We'll be using it more in later lessons.
+
+</Tip>

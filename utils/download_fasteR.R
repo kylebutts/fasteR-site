@@ -14,10 +14,10 @@ text <- str_replace_all(text, '<span style="color:red">', '<span style="color: #
 
 
 idx <- str_detect(text, "^## ")
+
 # First h2 should not be it's own file it's part of the introduction
 idx[min(which(idx))] <- FALSE
 idx[max(which(idx))] <- FALSE
-
 
 # Split level 2 headers to sections
 text <- split(text, cumsum(idx))
@@ -64,6 +64,11 @@ TOC = lapply(seq_along(text), \(i) {
   frontmatter <- c(
     '---',
     'layout: "../layout/PostLayout.astro"',
+    'setup: | ',
+    '  import YourTurn from "../components/YourTurn.astro"',
+    '  import Note from "../components/Note.astro"',
+    '  import Warning from "../components/Warning.astro"',
+    '  import Tip from "../components/Tip.astro"',
     paste('lesson:', lesson),
     paste('toc_num:', i),
     '---',

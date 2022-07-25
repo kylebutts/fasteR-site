@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 7
 toc_num: 8
 ---
@@ -76,6 +81,10 @@ continuing, trying some variations of the above example on his/her own.
 We'll be using this technique often in this tutorial, and it is central
 to R usage in the real world.
 
+<YourTurn>
+
 > **Your turn:**  Try some of these operations on R's built-in
 > `faithful` dataset.  For instance, find the number of eruptions for
 > which the waiting time was more than 80 minutes.
+
+</YourTurn>

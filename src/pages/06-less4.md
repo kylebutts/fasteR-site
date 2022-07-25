@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 6
 toc_num: 7
 ---
@@ -14,7 +19,9 @@ class too; actually, a single number is considered to be a vector of
 length 1.  So, `c('abc','xw')`, for instance, is  `character`
 as well.
 
-> <span style="color: #b4637a;">Tip:</span>
+<Tip>
+
+> **Tip:**
 > Computers require one to be very, very careful and very, very precise.
 > In that expression `c('abc','xw')` above, one might wonder why it does
 > not evaluate to `abcxw`.  After all, didn't I say that the `c` stands
@@ -24,6 +31,8 @@ as well.
 > likewise `xw` is one character string.  So, we are concatenating a
 > 1-element vector with another 1-element vector, resulting in a 2-element
 > vector.
+
+</Tip>
 
 What about `tg` and `tg$supp` in the Vitamin C example above?  What
 are their classes?

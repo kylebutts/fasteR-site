@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 10
 toc_num: 11
 ---
@@ -179,6 +184,8 @@ the function to skip the NAs:
 [1] 121.6868
 ```
 
+<YourTurn>
+
 > **Your Turn:**  Determine which other columns in `pima` have
 > suspicious 0s, and replace them with NA values.  
 > 
@@ -186,3 +193,5 @@ the function to skip the NAs:
 > There seems to be a gap between the numbers at the low end and the rest.
 > What years did these correspond to?  Find the mean of the data,
 > excluding these cases.
+
+</YourTurn>

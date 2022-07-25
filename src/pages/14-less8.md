@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 14
 toc_num: 15
 ---
@@ -142,8 +147,12 @@ black, and the women color 2, red.
 
 There are many, many other features.  More in a future lesson.
 
+<YourTurn>
+
 > **Your Turn:**  Try some scatter plots on various datasets.  I suggest
 > first using the above data with wage against age again, but this time
 > color-coding by education level.  (By the way, 1-9 codes no college;
 > 10-12 means some college; 13 is a bachelor's degree, 14 a master's, 15 a
 > professional degree and 16 is a doctorate.)
+
+</YourTurn>

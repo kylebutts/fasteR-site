@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 29
 toc_num: 30
 ---
@@ -155,11 +160,14 @@ So what we did to `z` above followed our usual pattern:
     elements of `z` at which there are `TRUE`s, which are exactly the
 ones we want to keep here.
 
-* <span style="color: #b4637a;">Tip:</span> 
+<Tip>
+
+**Tip:**
 When you write some code that looks like it will be generally useful,
 make a function out of it, and save it for future use.  The above code
 to delete the empty "words" sounds like something worth keeping.  So,
 let's write it in function form:
+
 
 ``` r
 extractNonemptyWords <- function(s) 
@@ -173,15 +181,24 @@ Recall that in R functions, the last computed value is automatically
 returned.  The expression `z[z != ""]` evaluates to the set of
 nonempty words, and it is returned.
 
-<span style="color: #b4637a;">Tip:</span> 
+</Tip>
+
+
+<Tip>
+
+**Tip:**
 As mentioned, we should probably save that function for future use.
 We could save it using the `save` function as discussed earlier, but it
 would be better to save our "home grown" functions in one or more
 packages, maybe even submitting them to CRAN.  More on this in a later
 lesson.
 
+</Tip>
+
 We'll continue with this example in the next lesson, but first, time for
 a **Your Turn** session.
+
+<YourTurn>
 
 > **Your Turn:** That `[[1]]` expression in the body of
 > `extractNonemptyWords` was crucial!  Try the code without it, and
@@ -191,8 +208,14 @@ a **Your Turn** session.
 > helpful!  So keep this frequent error in mind, both when you're
 > writing code and viewing cryptic error messages.
 
+</YourTurn>
+
 We can then call our `extractNonemptyWords` function on each line of
 the file, say in a loop.  We'll do this in the next section.
 
+<YourTurn>
+
 > **Your Turn:** Write a function with call form `delNAs(x)`, that
 > returns `x` with NAs deleted.  
+
+</YourTurn>

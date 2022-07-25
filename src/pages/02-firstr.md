@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 2
 toc_num: 3
 ---
@@ -54,8 +59,8 @@ But whenever we are at the R `>` prompt, any expression we type will be
 printed out anyway, so there is no need to call `print`.
 
 Since there are only 100 data points here, it's not unwieldy to print
-them out.  Again, all we have to do is type ``Nile,'' no need to call
-**print**:
+them out.  Again, all we have to do is type `Nile`, no need to call
+`print`:
 
 ``` r
 > Nile
@@ -99,6 +104,8 @@ graph.
 ![alt text](https://raw.githubusercontent.com/matloff/fasteR/master/inst/images/Nile.png)
 
 
+<YourTurn>
+
 > **Your Turn:**  The `hist` function draws 10 bins for this dataset
 > in the histogram by default, but you can choose other values, by
 > specifying an optional second argument to the function, named
@@ -109,11 +116,18 @@ graph.
 > 
 > would draw the histogram with 20 bins.  Try plotting using several
 > different large and small values of the number of bins.
-> 
+
+</YourTurn>
+
+<Note>
+
 > **Note:**  The `hist` function, as with many R functions, has many
 > different options, specifiable via various arguments.  For now, we'll
 > just keep things simple, and resist the temptation to explore them
 > all.
+
+</Note>
+
 R has lots of online help, which you can access via `?`.  E.g. typing
 
 ``` r
@@ -125,4 +139,8 @@ will tell you to full story on all the options available for the
 now (most users don't ever find a need for the more esoteric ones), but
 it's a vital resource to know.
 
+<YourTurn>
+
 > **Your Turn:**  Look at the online help for `mean` and `Nile`.
+
+</YourTurn>

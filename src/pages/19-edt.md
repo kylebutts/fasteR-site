@@ -1,5 +1,10 @@
 ---
 layout: "../layout/PostLayout.astro"
+setup: | 
+  import YourTurn from "../components/YourTurn.astro"
+  import Note from "../components/Note.astro"
+  import Warning from "../components/Warning.astro"
+  import Tip from "../components/Tip.astro"
 lesson: 19
 toc_num: 20
 ---
@@ -40,12 +45,18 @@ Option 1 or 2.  You may wish to start with one of those options now,
 before going further. 
 
 We have details on getting start with RStudio in the <a
-href="#ide">Appendix</a> at the end of this document.  **Warning:** 
-As noted earlier, one major R Users Group described RStudio as
-"overwhelming." But it is quite easy if you resist the temptation (or
-the exhortations of others) to learn it all at once.  As long as you
-stick to the basics in the Appendix, you'll find it quite easy; you can
-learn the advanced tricks later.
+href="#ide">Appendix</a> at the end of this document.  
+
+<Warning>
+
+> **Warning:** 
+> As noted earlier, one major R Users Group described RStudio as
+> "overwhelming." But it is quite easy if you resist the temptation (or
+> the exhortations of others) to learn it all at once.  As long as you
+> stick to the basics in the Appendix, you'll find it quite easy; you can
+> learn the advanced tricks later.
+
+</Warning>
 
 Consider the following toy example:
 

@@ -218,8 +218,8 @@ But whenever we are at the R `>` prompt, any expression we type will be
 printed out anyway, so there is no need to call `print`.
 
 Since there are only 100 data points here, it's not unwieldy to print
-them out.  Again, all we have to do is type ``Nile,'' no need to call
-**print**:
+them out.  Again, all we have to do is type `Nile`, no need to call
+`print`:
 
 ``` r
 > Nile
@@ -263,6 +263,8 @@ graph.
 ![alt text](https://raw.githubusercontent.com/matloff/fasteR/master/inst/images/Nile.png)
 
 
+<YourTurn>
+
 > **Your Turn:**  The `hist` function draws 10 bins for this dataset
 > in the histogram by default, but you can choose other values, by
 > specifying an optional second argument to the function, named
@@ -273,11 +275,18 @@ graph.
 > 
 > would draw the histogram with 20 bins.  Try plotting using several
 > different large and small values of the number of bins.
-> 
+
+</YourTurn>
+
+<Note>
+
 > **Note:**  The `hist` function, as with many R functions, has many
 > different options, specifiable via various arguments.  For now, we'll
 > just keep things simple, and resist the temptation to explore them
 > all.
+
+</Note>
+
 R has lots of online help, which you can access via `?`.  E.g. typing
 
 ``` r
@@ -289,7 +298,11 @@ will tell you to full story on all the options available for the
 now (most users don't ever find a need for the more esoteric ones), but
 it's a vital resource to know.
 
+<YourTurn>
+
 > **Your Turn:**  Look at the online help for `mean` and `Nile`.
+
+</YourTurn>
 
 ## <a name="vecidxs"> </a> Lesson 3:  Vectors and Indices
 
@@ -401,10 +414,12 @@ Keep in mind that although `Nile` and `n81100` now have identical
 contents, they are *separate* vectors; if one changes, the other will
 not.
 
+<YourTurn>
 
 > **Your Turn:** Devise and try variants of the above, say finding the
 > mean over the years 1945-1960.
 
+</YourTurn>
 
 Another oft-used function is `length`, which gives the number of
 elements in the vector, e.g.
@@ -475,21 +490,21 @@ look at a small example first:
 ```
 
 First, notice something odd here, in the expression `x > 8`. Here
-**x** is a vector, 3 elements in length, but 8 is just a number.  It
-would seem that it's nnonsense to ask whether a vector is greater than a
+`x` is a vector, 3 elements in length, but 8 is just a number.  It
+would seem that it's nonsense to ask whether a vector is greater than a
 number; they're different animals.
 
 But R makes them "the same kind" of animal, by extending that number 8
 to a 3-element vector 8,8,8.  This is called *recycling*.  This sets up
 an element-by-element comparison:  Then, the 5 in `x` is compared to
-the first 8, yielding FALSE i.e. 5 is NOT greater than 8.  Then 12 is
-compared to the second 8, yielding TRUE, and then the comparison of 13
-to the third 8 yields another TRUE.  So, we get the vector
-FALSE,TRUE,TRUE.
+the first 8, yielding `FALSE` i.e. 5 is NOT greater than 8.  Then 12 is
+compared to the second 8, yielding `TRUE`, and then the comparison of 13
+to the third 8 yields another `TRUE`.  So, we get the vector
+`FALSE`, `TRUE`, `TRUE`.
 
-Fine, but how will `sum` add up some TRUEs and FALSEs?  The
-answer is that R, like most computer languages, treats TRUE and FALSE as
-1 and 0, respectively.  So we summed the vector (0,1,1), yielding 2.
+Fine, but how will `sum` add up some `TRUE`s and `FALSE`s?  The
+answer is that R, like most computer languages, treats `TRUE` and `FALSE` as
+`1` and `0`, respectively.  So we summed the vector (0,1,1), yielding 2.
 
 Getting back to the question of the number of years in which the Nile
 flow exceeded 1200, let's look at that expression again:
@@ -500,14 +515,18 @@ flow exceeded 1200, let's look at that expression again:
 
 Since the vector `Nile` has length 100, that number 1200 will be
 recycled into a vector of one hundred copies of 1200.  The `>`
-comparison will then yield 100 TRUEs and FALSEs, so summing gives us the
-number of TRUEs, exactly what we want.
+comparison will then yield 100 `TRUE`s and `FALSE`s, so summing gives us the
+number of `TRUE`s, exactly what we want.
+
+<YourTurn>
 
 > **Your Turn:** Try a few other experiments of your choice using `sum`.
 > I'd suggest starting with finding the sum of the first 25 elements in
 > `Nile`.  You may wish to start with experiments on a small vector, say
 > (2,1,1,6,8,5), so you will know that your answers are correct.
 > Remember, you'll learn best nonpassively.  Code away!
+
+</YourTurn>
 
 A question related to *how many* years had a flow above 1200 is *which*
 years had that property.  Well, R actually has a `which` function:
@@ -573,8 +592,13 @@ Less bold is the notion of negative indices, e.g.
 [1] 12 13  8
 ```
 
-Here we are asking for all of `x` *except* for `x[1]`.  Can you
-guess what `x[c(-1,-4)]` evaluates to?  Guess first, then try it out.
+<YourTurn>
+
+> **Your Turn:** 
+> Here we are asking for all of `x` *except* for `x[1]`.  Can you
+> guess what `x[c(-1,-4)]` evaluates to?  Guess first, then try it out.
+
+</YourTurn>
 
 ### Recap:  What have we learned in this lesson?
 
@@ -661,9 +685,13 @@ The element in row 3, column 1 in the *data frame* `tg` is element 3
 in the *vector* `tg$letn`.  This duality between data frames and
 vectors is often exploited in R.
 
+<YourTurn>
+
 > **Your Turn:**  The above examples are fundamental to R, so you should
 > conduct a few small experiments on your own this time, little variants
 > of the above.  The more you do, the better!
+
+</YourTurn>
 
 For any subset of a data frame `d`, we can extract whatever rows and
 columns we want using the format
@@ -795,6 +823,8 @@ One can use negative indices for rows and columns as well, e.g.
 6 10.0  0.5
 ```
 
+<YourTurn>
+
 > **Your Turn:** Devise your own little examples with the `ToothGrowth`
 > data.  For instance, write code that finds the number of cases in which
 > the tooth length was less than 16.  Also, try some examples with another
@@ -804,6 +834,8 @@ One can use negative indices for rows and columns as well, e.g.
 > last eruption.  As mentioned, these operations are key features of R,
 > so devise and run as many examples as possible; err on the side of
 > doing too many!
+
+</YourTurn>
 
 ### Recap:  What have we learned in this lesson?
 
@@ -828,7 +860,9 @@ class too; actually, a single number is considered to be a vector of
 length 1.  So, `c('abc','xw')`, for instance, is  `character`
 as well.
 
-> <span style="color:red">Tip:</span>
+<Tip>
+
+> **Tip:**
 > Computers require one to be very, very careful and very, very precise.
 > In that expression `c('abc','xw')` above, one might wonder why it does
 > not evaluate to `abcxw`.  After all, didn't I say that the `c` stands
@@ -838,6 +872,8 @@ as well.
 > likewise `xw` is one character string.  So, we are concatenating a
 > 1-element vector with another 1-element vector, resulting in a 2-element
 > vector.
+
+</Tip>
 
 What about `tg` and `tg$supp` in the Vitamin C example above?  What
 are their classes?
@@ -943,9 +979,13 @@ continuing, trying some variations of the above example on his/her own.
 We'll be using this technique often in this tutorial, and it is central
 to R usage in the real world.
 
+<YourTurn>
+
 > **Your turn:**  Try some of these operations on R's built-in
 > `faithful` dataset.  For instance, find the number of eruptions for
 > which the waiting time was more than 80 minutes.
+
+</YourTurn>
 
 ## <a name="moreextract"> </a> Lesson 8:  More Examples of Extracting Rows, Columns
 
@@ -1107,18 +1147,26 @@ is a creative process*.  It's like a grocery store and cooking:  The
 store has lots of different potential ingredients, and you decide which
 ones to buy and combine into a meal.
 
+<YourTurn>
+
 > **Your turn:**  Try some of these operations on R's built-in
 > `faithful` dataset.  For instance, find the number of eruptions for
 > which `eruptions` was greater than 3 and waiting time was more than 80
 > minutes.
 
+</YourTurn>
+
 
 ## <a name="tapply"> </a> Lesson 9:  The tapply Function
 
-> <span style="color:red">Tip:</span> Often in R there is a shorter, more
+<Tip>
+
+> **Tip:** Often in R there is a shorter, more
 > compact way of doing things.  That's the case here; we can use the
 > magical `tapply` function in the above example.  In fact, we can do it
 > in just one line.
+
+</Tip>
 
 ``` r
 > tapply(tg$len,tg$supp,mean)
@@ -1176,11 +1224,15 @@ child's age in `x`.  Similarly, it wouldn't be right if `g` had had
 only 3 elements, apparently leaving the fourth child without a specified
 gender.
 
-> <span style="color:red">Tip:</span>
+<Tip>
+
+> **Tip:**
 > If `g` had been of the wrong length, we would have gotten an error,
 > "Arguments must be of the same length."  This is a common error in R
 > code, so watch out for it, keeping in mind WHY the lengths must be the
 > same.
+
+</Tip>
 
 Instead of `mean`, we can use any function as that third argument in
 **tapply**.  Here is another example, using the built-in dataset
@@ -1198,6 +1250,8 @@ subset.  We see that each subset had length 10, i.e. the experiment had
 assigned 10 plants to the control, 10 to treatment 1 and 10 to treatment
 2.
 
+<YourTurn>
+
 > **Your Turn:**  One of the most famous built-in R datasets is
 > `mtcars`, which has various measurements on cars from the 60s and 70s.
 > Lots of opportunties for you to cook up little experiments here!  You
@@ -1205,6 +1259,8 @@ assigned 10 plants to the control, 10 to treatment 1 and 10 to treatment
 > 6- and 8-cylinder cars.  Another suggestion would be to find how many
 > cars there are in each cylinder category, using `tapply`.  As usual,
 > the more examples you cook up here, the better!
+
+</YourTurn>
 
 By the way, the `mtcars` data frame has a "phantom" column.  
 
@@ -1272,10 +1328,16 @@ have a function call on the *left* side of an assignment.  This is
 actually common in R.  It stems from the fact that `<-` is actually a
 function!  But this is not the place to go into that.)
 
+<YourTurn>
+
 > **Your Turn:**  Try some experiments with the `mtcars` data, e.g.
 > finding the mean horsepower for 6-cylinder cars.
 
-> <span style="color:red">Tip:</span>
+</YourTurn>
+
+<Tip>
+
+> **Tip:**
 > As a beginner (and for that matter later on), you should NOT be obsessed
 > with always writing code in the "optimal" way, including in terms of
 > compactness of the code.  It's much more important
@@ -1283,6 +1345,8 @@ function!  But this is not the place to go into that.)
 > later.  In this case, though, `tapply` actually aids clarity, and it
 > is so ubiquitously useful that we have introduced it early in this
 > tutorial.  We'll be using it more in later lessons.
+
+</Tip>
 
 ## <a name="less5"> </a> Lesson 10:  Data Cleaning
 
@@ -1459,6 +1523,8 @@ the function to skip the NAs:
 [1] 121.6868
 ```
 
+<YourTurn>
+
 > **Your Turn:**  Determine which other columns in `pima` have
 > suspicious 0s, and replace them with NA values.  
 > 
@@ -1466,6 +1532,8 @@ the function to skip the NAs:
 > There seems to be a gap between the numbers at the low end and the rest.
 > What years did these correspond to?  Find the mean of the data,
 > excluding these cases.
+
+</YourTurn>
 
 ## <a name="less6"> </a> Lesson 11:  The R List Class
 
@@ -1887,11 +1955,15 @@ black, and the women color 2, red.
 
 There are many, many other features.  More in a future lesson.
 
+<YourTurn>
+
 > **Your Turn:**  Try some scatter plots on various datasets.  I suggest
 > first using the above data with wage against age again, but this time
 > color-coding by education level.  (By the way, 1-9 codes no college;
 > 10-12 means some college; 13 is a bachelor's degree, 14 a master's, 15 a
 > professional degree and 16 is a doctorate.)
+
+</YourTurn>
 
 ## <a name="less9"> </a> Lesson 15:  More on Base Graphics
 
@@ -1993,7 +2065,9 @@ Let's review how this works:
 But we may wish to do this kind thing often, on many datasets etc.  Then
 we have:
 
-> <span style="color:red">Tip:</span>
+<Tip>
+
+> **Tip:**
 > If we have an operation we will use a lot, we should consider writing a
 > function for it.
 >
@@ -2002,6 +2076,8 @@ we have:
 > our lower bound.  We *could* keep typing the same pattern as above,
 > but if we're going to do this a lot, it's better to write a function
 > for it:
+
+</Tip>
 
 Here is our function:
 
@@ -2133,14 +2209,20 @@ i.e. the difference between the minimal and maximal values:
 
 Here we made use of the built-in R functions `max` and `min`.
 
-> <span style="color:red">Tip:</span>  Build new functions from old
+<Tip>
+
+> **Tip:** Build new functions from old
 > ones (which may in turn depend on other old ones, etc.).
+
+</Tip>
 
 Again, the last item computed is the subtraction, so it will be
 automatically returned, just what we want.  As before, I chose to name
 the argument `y`, but it could be anything.  However, I did not name
 the function `range`, as there is already a built-in R function of that
 name.
+
+<YourTurn>
 
 > **Your Turn:**  Try your hand at writing some simple functions along
 > the lines seen here.  You might start by writing a function `cgd()`,
@@ -2152,6 +2234,8 @@ name.
 > for those elements in the vector `x` that are less than `d`.
 > Write at least 4 or 5 functions; the more you write, the easier it
 > will be in later lessons.
+
+</YourTurn>
 
 Functions are R objects, just as are vectors, lists and so on.  Thus, we
 can print them by just typing their names!
@@ -2362,10 +2446,14 @@ determines where the 0s are in column `i`, and then the line
 
 replaces those 0s by NAs.
 
-> <span style="color:red">Tip:</span>
+<Tip>
+
+> **Tip:**
 > Note that I have indented the two lines in the block.  This is not
 > required but is considered good for clear code, in order to easily
 > spot the block when you or others read the code. 
+
+</Tip>
 
 Sometimes our code needs to leave a loop early, which we can do using
 the R `break` construct.  Say we are adding cubes of numbers
@@ -2470,11 +2558,15 @@ isn't `d` changing, and isn't `d` the same as `pima`?  Well, no;
 `pima` does not.  So, if we want `pima` to change, we must reassign
 the output of the function back to `pima`, as we did above.
 
+<YourTurn>
+
 > **Your Turn**: Write a function with call form `countNAs(dfr)`,
 > which prints the numbers of NAs in each column of the data frame
 > `dfr`.  You'll need to use the built-in `is.na()` functon; execute
 > `is.na(c(5,NA,13,28,NA))` at the R command prompt to see what it
 > does.  Test it on a small artificial dataset that you create.
+
+</YourTurn>
 
 ## <a name="edt"> </a> Lesson 19:  Text Editing and IDEs
 
@@ -2512,12 +2604,18 @@ Option 1 or 2.  You may wish to start with one of those options now,
 before going further. 
 
 We have details on getting start with RStudio in the <a
-href="#ide">Appendix</a> at the end of this document.  **Warning:** 
-As noted earlier, one major R Users Group described RStudio as
-"overwhelming." But it is quite easy if you resist the temptation (or
-the exhortations of others) to learn it all at once.  As long as you
-stick to the basics in the Appendix, you'll find it quite easy; you can
-learn the advanced tricks later.
+href="#ide">Appendix</a> at the end of this document.  
+
+<Warning>
+
+> **Warning:** 
+> As noted earlier, one major R Users Group described RStudio as
+> "overwhelming." But it is quite easy if you resist the temptation (or
+> the exhortations of others) to learn it all at once.  As long as you
+> stick to the basics in the Appendix, you'll find it quite easy; you can
+> learn the advanced tricks later.
+
+</Warning>
 
 Consider the following toy example:
 
@@ -2836,12 +2934,16 @@ plot.  For instance, in `taout` we see that for age group 25, the mean
 weight was 200.2427, so there is a dot in the graph for the point
 (25,200.2427).
 
+<YourTurn>
+
 > **Your Turn:** There are lots of little experiments you can do on this
 > dataset.  For instance, use `tapply` to find the mean weight for
 > each position; is the stereotype of the `beefy` catcher accurate, i.e.
 > is the mean weight for that position higher than for the others?
 > Another suggestion:  Plot the number of players at each age group, to
 > visualize the ages at which the bulk of the players fall.
+
+</YourTurn>
  
 ## <a name="linreg1"> </a> Lesson 22:  Linear Regression Analysis, I
 
@@ -2894,16 +2996,24 @@ line, superimposed on our scatter plot:
 
 ![alt text](https://raw.githubusercontent.com/matloff/fasteR/master/inst/images/Add_abline.png)
 
+<YourTurn>
+
 > **Your Turn:** In the `mtcars` data, fit a linear model of the
 > regression of MPG against weight; what is the estimated
 > effect of 100 pounds of extra weight?
 
+</YourTurn>
+
 ## <a name="s3"> </a> Lesson 23:  S3 classes
+
+<Tip>
 
 > <span style="color:red">Tip:</span>
 > Remember, the point of computers is to alleviate us of work.  We should
 > avoid doing what the computer could do.  For instance,
 > concerning the graph in the last lesson: We had typed
+
+</Tip>
 
 ``` r
 > abline(181.4366,0.6936)
@@ -3085,7 +3195,9 @@ that `split` produces an R list.  Also not surprisingly, the elements
 of the list are named `Catcher` etc.  So for example, the third
 outfielder is in row 12 of the data frame.
 
-> <span style="color:red">Tip:</span>
+<Tip>
+
+> **Tip:**
 > The idea here, using `split` on `1:nrow(mlb)`, was a bit of a trick.
 > Actually, it is a common ploy for experienced R coders, but you might
 > ask, "How could a novice come up with this idea?"  The answer, as noted
@@ -3097,12 +3209,18 @@ outfielder is in row 12 of the data frame.
 > there are many forums on the Web at which you can ask questions,
 > e.g. Stack Overflow.
 
-> <span style="color:red">Tip:</span>
+</Tip>
+
+<Tip>
+
+> **Tip:**
 > Now, remember, a nice thing about R lists is that we can reference their
 > elements in various ways.  The first element above, for instance, is any
 > of `rownums$Catcher`, `rownums[['Catcher']]` and `rownums[[1]]`,
 > This versatility is great, as for example we can use the latter two
 > forms to write loops.
+
+</Tip>
 
 And a loop is exactly what we need here.  We want to call `lm` four
 times, once for each position.  We could do this, say, with a loop
@@ -3184,8 +3302,12 @@ catchers.  That line is returned to us from `lm`, and we assign it to
 symbolize "lm output.")  We extract the coefficients and tack them on at
 the end of `m`.
 
-> <span style="color:red">Tip:</span> This is a very common *design
+<Tip>
+
+> **Tip:** This is a very common *design
 > pattern* in R (and most other languages)
+
+</Tip>
 
 Nice output, with the two columns aligned.  But those column names are
 awful, and the row labels should be nicer than 1,2,3,4.  We can fix
@@ -3239,10 +3361,14 @@ So, the better way to set `posNames` is
 posNames <- names(rownums)
 ```
 
-> <span style="color:red">Tip:</span> Again, the reader may be thinking,
+<Tip>
+
+> **Tip:** Again, the reader may be thinking,
 > "How in the world would I have been able to realize this?"  Again, the
 > answer is that as you acquire more experience in coding, you will be
 > more and more ability to come up with insights like this.  Patience!
+
+</Tip>
 
 Finally, what about those numerical results?  There is substantial
 variation in those estimated slopes, but again, they are only estimates.
@@ -3790,11 +3916,14 @@ So what we did to `z` above followed our usual pattern:
     elements of `z` at which there are `TRUE`s, which are exactly the
 ones we want to keep here.
 
-* <span style="color:red">Tip:</span> 
+<Tip>
+
+**Tip:**
 When you write some code that looks like it will be generally useful,
 make a function out of it, and save it for future use.  The above code
 to delete the empty "words" sounds like something worth keeping.  So,
 let's write it in function form:
+
 
 ``` r
 extractNonemptyWords <- function(s) 
@@ -3808,15 +3937,24 @@ Recall that in R functions, the last computed value is automatically
 returned.  The expression `z[z != ""]` evaluates to the set of
 nonempty words, and it is returned.
 
-<span style="color:red">Tip:</span> 
+</Tip>
+
+
+<Tip>
+
+**Tip:**
 As mentioned, we should probably save that function for future use.
 We could save it using the `save` function as discussed earlier, but it
 would be better to save our "home grown" functions in one or more
 packages, maybe even submitting them to CRAN.  More on this in a later
 lesson.
 
+</Tip>
+
 We'll continue with this example in the next lesson, but first, time for
 a **Your Turn** session.
+
+<YourTurn>
 
 > **Your Turn:** That `[[1]]` expression in the body of
 > `extractNonemptyWords` was crucial!  Try the code without it, and
@@ -3826,11 +3964,17 @@ a **Your Turn** session.
 > helpful!  So keep this frequent error in mind, both when you're
 > writing code and viewing cryptic error messages.
 
+</YourTurn>
+
 We can then call our `extractNonemptyWords` function on each line of
 the file, say in a loop.  We'll do this in the next section.
 
+<YourTurn>
+
 > **Your Turn:** Write a function with call form `delNAs(x)`, that
 > returns `x` with NAs deleted.  
+
+</YourTurn>
 
 ## <a name="txt1"> </a> Lesson 30:  Simple Text Processing, II
 
@@ -3892,10 +4036,14 @@ that the first two arguments are identical, but it makes sense:
 2.  We apply the `length` function to each pile, giving us the count
     in each pile, exactly what we needed.
 
-<span style="color:red">Tip:</span>  In coding, certain patterns do
-arise often, one did here. In fact, there are coding books with "design
-patterns" in their titles.  Take note when you see the same pattern a
-lot.
+<Tip>
+
+> **Tip:** In coding, certain patterns do
+> arise often, one did here. In fact, there are coding books with "design
+> patterns" in their titles.  Take note when you see the same pattern a
+> lot.
+
+</Tip>
 
 We're not fully done yet.  For instance, we have a punctuation problem,
 where periods, commas and so on are considered parts of words, such as
@@ -4739,4 +4887,3 @@ licensing information here is displayed.  I would appreciate being
 notified if you use this book for teaching, just so that I know the
 materials are being put to use, but this is not required.  information
 displayed.  No warranties are given or implied for this material.
-
